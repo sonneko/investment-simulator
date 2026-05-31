@@ -1,16 +1,15 @@
 {
   "news_keywords": [
-    "NVDA price",
-    "TSM price",
-    "QQQ price",
-    "BTC-USD price",
-    "NVIDIA earnings",
-    "AI semiconductor momentum"
+    "NVIDIA 決算",
+    "AI 半導体 株価",
+    "ビットコイン 仮想通貨",
+    "テック株 成長"
   ],
   "tickers": [
     "NVDA",
-    "TSM",
     "QQQ",
-    "BTC-USD"
+    "BTC-USD",
+    "MSTR",
+    "TSM"
   ]
 }
