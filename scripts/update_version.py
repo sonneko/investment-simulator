@@ -2,7 +2,7 @@ import os
 import subprocess
 from pathlib import Path
 
-def modify_requirements_and_install():
+def modify_requirements():
     req_path = Path("requirements.txt")
     
     if not req_path.exists():
@@ -32,18 +32,5 @@ def modify_requirements_and_install():
     else:
         print(f"[INFO] {req_path.name} 内に yfinance の記述はありませんでした。")
 
-    # 3. pip install yfinance を実行して最新版を入れる
-    print("[INFO] pip install yfinance を実行しています...")
-    try:
-        # sys.executable を使うことで、現在実行中のPython環境（仮想環境など）に確実にインストールします
-        import sys
-        subprocess.run(
-            [sys.executable, "-m", "pip", "install", "yfinance"],
-            check=True
-        )
-        print("[OK] yfinance の最新版のインストールが完了しました！")
-    except subprocess.CalledProcessError as e:
-        print(f"[ERROR] pip install に失敗しました: {e}")
-
 if __name__ == "__main__":
-    modify_requirements_and_install()
+    modify_requirements()
