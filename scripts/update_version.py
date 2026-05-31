@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 
 def modify_requirements_and_install():
-    req_path = Path("../requirements.txt")
+    req_path = Path("requirements.txt")
     
     if not req_path.exists():
         print(f"[ERROR] {req_path.name} が見つかりません。パスを確認してください。")
