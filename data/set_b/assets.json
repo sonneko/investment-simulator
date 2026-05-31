@@ -1,7 +1,12 @@
 {
   "cash": {
-    "USD": 50000,
+    "USD": 5470.389,
     "JPY": 0
   },
-  "holdings": {}
+  "holdings": {
+    "NVDA": 82.0,
+    "QQQ": 20.0,
+    "MSTR": 47.0,
+    "BTC-USD": 0.067
+  }
 }

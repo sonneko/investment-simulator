@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-06-01T00:07:20.673749+09:00",
+  "session": 3,
+  "reasoning": "NVIDIAの好決算（データセンター売上高過去最高）を確認し、AI・半導体セクターの成長ストーリーは依然として強力であると判断しました。現在の株価調整は絶好の押し目買いの機会です。また、ハイテク全体のモメンタムを享受するためQQQをコアに据え、ビットコインの下げ渋りとMSTRの強い上昇モメンタム（+4.91%）に着目して、サテライトとしてMSTRとBTC-USDを組み入れます。これにより、最大リターンを追求するアグレッシブなポートフォリオを構築します。",
+  "trades_executed": [
+    {
+      "timestamp": "2026-06-01T00:07:20.671475+09:00",
+      "action": "buy",
+      "ticker": "NVDA",
+      "qty": 82.0,
+      "price": 211.14,
+      "fee": 17.3135,
+      "currency": "USD",
+      "reason": "過去最高のデータセンター売上を記録した好決算後の押し目買い。AI・半導体セクターの主軸として最大リターンを狙う。",
+      "status": "ok",
+      "set": "b",
+      "session": 3
+    },
+    {
+      "timestamp": "2026-06-01T00:07:20.671497+09:00",
+      "action": "buy",
+      "ticker": "QQQ",
+      "qty": 20.0,
+      "price": 738.31,
+      "fee": 14.7662,
+      "currency": "USD",
+      "reason": "ハイテク成長株全体のモメンタムを効率的に捉えるためのコア資産として購入。",
+      "status": "ok",
+      "set": "b",
+      "session": 3
+    },
+    {
+      "timestamp": "2026-06-01T00:07:20.671510+09:00",
+      "action": "buy",
+      "ticker": "MSTR",
+      "qty": 47.0,
+      "price": 159.09,
+      "fee": 7.4772,
+      "currency": "USD",
+      "reason": "ビットコイン価格の下げ渋りに加え、前日比+4.91%と極めて強い上昇モメンタムを示しているため、サテライトとして採用。",
+      "status": "ok",
+      "set": "b",
+      "session": 3
+    },
+    {
+      "timestamp": "2026-06-01T00:07:20.671520+09:00",
+      "action": "buy",
+      "ticker": "BTC-USD",
+      "qty": 0.067,
+      "price": 73555.4609,
+      "fee": 4.9282,
+      "currency": "USD",
+      "reason": "中東情勢の懸念後退と停戦延長報道による下げ渋りを確認し、仮想通貨枠（10%以内）として購入。",
+      "status": "ok",
+      "set": "b",
+      "session": 3
+    }
+  ],
+  "summary_for_report": "NVIDIAのデータセンター売上過去最高という強力な決算を受け、一時的な調整を押し目買いの好機と捉えてNVDAをポートフォリオの主軸（約35%）として新規購入しました。さらに、ハイテク全体のモメンタムを捉えるQQQ（約30%）、ビットコインの下げ渋りと強い上昇モメンタムを見せるMSTR（約15%）、およびBTC-USD（約10%）を組み入れ、利益最大化を狙うアグレッシブな体制を整えました。",
+  "portfolio_value": {
+    "total_usd": 50000,
+    "total_jpy": 0,
+    "breakdown": [],
+    "cash": {
+      "USD": 50000,
+      "JPY": 0
+    }
+  },
+  "prices_snapshot": {
+    "NVDA": {
+      "price": 211.14,
+      "change_pct": -1.45,
+      "52w_high": 236.54,
+      "52w_low": 135.4,
+      "currency": "USD"
+    },
+    "QQQ": {
+      "price": 738.31,
+      "change_pct": 0.37,
+      "52w_high": 741.63,
+      "52w_low": 515.97,
+      "currency": "USD"
+    },
+    "ARKK": {
+      "price": 81.95,
+      "change_pct": 1.16,
+      "52w_high": 92.65,
+      "52w_low": 55.64,
+      "currency": "USD"
+    },
+    "BTC-USD": {
+      "price": 73555.4609,
+      "change_pct": -0.27,
+      "52w_high": 126198.0703,
+      "52w_low": 60074.2031,
+      "currency": "USD"
+    },
+    "TSLA": {
+      "price": 435.79,
+      "change_pct": -1.43,
+      "52w_high": 498.83,
+      "52w_low": 273.21,
+      "currency": "USD"
+    },
+    "MSTR": {
+      "price": 159.09,
+      "change_pct": 4.91,
+      "52w_high": 457.22,
+      "52w_low": 104.17,
+      "currency": "USD"
+    }
+  }
+}

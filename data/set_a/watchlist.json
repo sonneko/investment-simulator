@@ -3,11 +3,14 @@
     "US Inflation",
     "Fed Rate",
     "Gold Price",
-    "US 10-year Treasury"
+    "US 10-year Treasury",
+    "S&P 500"
   ],
   "tickers": [
     "SPY",
     "BND",
-    "GLD"
+    "GLD",
+    "VTI",
+    "AGG"
   ]
 }
