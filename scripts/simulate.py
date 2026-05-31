@@ -23,7 +23,7 @@ from typing import Any
 JST = pytz.timezone("Asia/Tokyo")
 REPO_ROOT = Path(__file__).parent.parent
 FEE_RATE = float(os.environ.get("FEE_RATE", "0.001"))   # 手数料率（デフォルト0.1%）
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-flash-latest"
 
 # ── パス解決 ──────────────────────────────────────────────────────────────────
 def set_dir(set_id: str) -> Path:
