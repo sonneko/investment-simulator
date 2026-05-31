@@ -69,7 +69,7 @@
 <body>
   <header>
     <h1>🤖 LLM Investment Simulator</h1>
-    <p>Generated: 2026-05-31 17:07 JST</p>
+    <p>Generated: 2026-05-31 17:11 JST</p>
     <nav>
       <a href="#set-a">🅰️ セットA (安定志向)</a>
       <a href="#set-b">🅱️ セットB (利益志向)</a>
@@ -83,7 +83,7 @@
     <div class="cards">
       <div class="card">
         <h3>📊 最新ポートフォリオ評価</h3>
-        <p class="timestamp">最終更新: 2026-05-31T17:07</p>
+        <p class="timestamp">最終更新: 2026-05-31T17:10</p>
         
     <table class='data-table'>
       <thead><tr><th>銘柄</th><th>数量</th><th>現在価格</th><th>評価額</th><th>通貨</th></tr></thead>
@@ -94,12 +94,12 @@
       </div>
       <div class="card">
         <h3>🧠 LLMの最新判断</h3>
-        <p class="timestamp">2026-05-31T17:07</p>
+        <p class="timestamp">2026-05-31T17:10</p>
         <div class="summary-box">APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
-Please retry in 57.169949544s. [links {
+Please retry in 34.043289901s. [links {
   description: &quot;Learn more about Gemini API quotas&quot;
   url: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;
 }
@@ -140,7 +140,7 @@ violations {
   }
 }
 , retry_delay {
-  seconds: 57
+  seconds: 34
 }
 ]</div>
         <details>
@@ -149,7 +149,7 @@ violations {
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
 * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
-Please retry in 57.169949544s. [links {
+Please retry in 34.043289901s. [links {
   description: &quot;Learn more about Gemini API quotas&quot;
   url: &quot;https://ai.google.dev/gemini-api/docs/rate-limits&quot;
 }
@@ -190,7 +190,7 @@ violations {
   }
 }
 , retry_delay {
-  seconds: 57
+  seconds: 34
 }
 ]</pre>
         </details>
@@ -257,11 +257,11 @@ violations {
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ["2026-05-31T17:07"],
+        labels: ["2026-05-31T17:07", "2026-05-31T17:10"],
         datasets: [
           {
             label: 'USD評価額',
-            data: [50000],
+            data: [50000, 50000],
             borderColor: '#4f8ef7',
             backgroundColor: 'rgba(79,142,247,0.1)',
             tension: 0.3,
@@ -270,7 +270,7 @@ violations {
           },
           {
             label: 'JPY評価額',
-            data: [0],
+            data: [0, 0],
             borderColor: '#f7a84f',
             backgroundColor: 'rgba(247,168,79,0.1)',
             tension: 0.3,
