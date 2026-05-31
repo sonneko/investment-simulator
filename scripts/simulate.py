@@ -396,6 +396,23 @@ def run(set_id: str, session: int) -> None:
             "summary_for_report": f"APIエラーのためスキップ: {e}",
         }
 
+    trade_list = llm_result.get("trades", [])
+    needed_tickers = [t.get("ticker", "").upper() for t in trade_list if t.get("action") in ["buy", "sell"]]
+    missing_tickers = [t for t in needed_tickers if t not in prices and t != ""]
+    
+    if missing_tickers:
+        print(f"[INFO] Fetching prices for new tickers suggested by LLM: {missing_tickers}")
+        fresh_prices = fetch_prices(missing_tickers)
+        prices.update(fresh_prices)
+
+    # ── トレード実行 ──
+    new_assets, trade_records = execute_trades(
+        assets, trade_list, prices, FEE_RATE
+    )
+
+    # トレード実行後の資産状態で評価額を再計算
+    updated_portfolio_value = calc_portfolio_value(new_assets, prices)
+
     # ── API呼び出し履歴ログ ──
     call_record = {
         "timestamp": now_str(),
@@ -405,15 +422,10 @@ def run(set_id: str, session: int) -> None:
         "elapsed_sec": elapsed,
         "news_count": len(news),
         "tickers_fetched": list(prices.keys()),
-        "portfolio_value": portfolio_value,
+        "portfolio_value": updated_portfolio_value,
         "llm_summary": llm_result.get("summary_for_report", ""),
     }
     append_jsonl(call_log_path(set_id), call_record)
-
-    # ── トレード実行 ──
-    new_assets, trade_records = execute_trades(
-        assets, llm_result.get("trades", []), prices, FEE_RATE
-    )
 
     # ── トレード履歴ログ ──
     for tr in trade_records:
@@ -438,7 +450,7 @@ def run(set_id: str, session: int) -> None:
         "reasoning": llm_result.get("reasoning", ""),
         "trades_executed": trade_records,
         "summary_for_report": llm_result.get("summary_for_report", ""),
-        "portfolio_value": portfolio_value,
+        "portfolio_value": updated_portfolio_value,
         "prices_snapshot": prices,
     })
 
