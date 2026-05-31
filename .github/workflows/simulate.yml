@@ -47,11 +47,11 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Update yfinance
-        run: python scripts/update_version.py
-
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Install Yfinance
+        run: pip install yfinance
 
       # セッション番号を決定 (UTC時間から自動判定)
       - name: Determine session number
