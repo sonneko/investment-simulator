@@ -1,14 +1,16 @@
 {
   "news_keywords": [
+    "NVDA price",
+    "TSM price",
+    "QQQ price",
+    "BTC-USD price",
     "NVIDIA earnings",
-    "AI semiconductor demand",
-    "Nasdaq momentum",
-    "Bitcoin ETF flows"
+    "AI semiconductor momentum"
   ],
   "tickers": [
     "NVDA",
+    "TSM",
     "QQQ",
-    "BTC-USD",
-    "TSM"
+    "BTC-USD"
   ]
 }
