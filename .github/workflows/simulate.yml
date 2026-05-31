@@ -33,6 +33,7 @@ jobs:
     name: Run Simulation (Set ${{ matrix.set }})
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         set: [a, b]
       fail-fast: false    # 片方が失敗しても続ける
