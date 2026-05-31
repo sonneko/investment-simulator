@@ -1,15 +1,17 @@
 {
   "news_keywords": [
-    "MSTR momentum",
-    "NVIDIA AI growth",
-    "Bitcoin ETF inflows",
-    "AI semiconductor trend"
+    "AI 半導体 株価",
+    "NVIDIA 決算",
+    "ビットコイン 仮想通貨",
+    "テック株 成長",
+    "新興国 株式"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "MSTR",
+    "ARKK",
     "BTC-USD",
-    "TSM"
+    "TSLA",
+    "MSTR"
   ]
 }
