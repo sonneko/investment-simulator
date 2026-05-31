@@ -24,8 +24,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "simulate"
-  cancel-in-progress: false   # 途中キャンセルで資産が壊れないよう直列化
+  group: "simulate-${{ github.ref }}"
+  cancel-in-progress: false   # 資産データが壊れないよう、ワークフロー単位で直列化
 
 jobs:
   # ────────────────────────────────────────────────
@@ -33,7 +33,6 @@ jobs:
     name: Run Simulation (Set ${{ matrix.set }})
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1
       matrix:
         set: [a, b]
       fail-fast: false    # 片方が失敗しても続ける
@@ -41,8 +40,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -79,15 +76,15 @@ jobs:
             --set ${{ matrix.set }} \
             --session ${{ steps.session.outputs.num }}
 
-      # data/ の変更を commit & push
-      - name: Commit data changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+      # 生成されたデータを一時保存（ここでGit Pushはしないことで競合を回避）
+      - name: Upload simulation data artifact
+        uses: actions/upload-artifact@v4
         with:
-          commit_message: "chore(data): set-${{ matrix.set }} session-${{ steps.session.outputs.num }} [${{ github.run_number }}]"
-          file_pattern: "data/set_${{ matrix.set }}/**"
-          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          name: simulation-data-${{ matrix.set }}
+          path: data/set_${{ matrix.set }}/**
+          retention-days: 1
 
-  # ────────────────────────────────────────────────
+  # ────────────────────────────────────────────────────────────────────────
   report:
     name: Generate & Deploy Report
     runs-on: ubuntu-latest
@@ -98,7 +95,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: main           # simulate job の commit を含む最新を取得
           fetch-depth: 1
 
       - name: Set up Python
@@ -110,14 +106,35 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # 各マトリックスジョブで生成されたデータをすべてダウンロードして元の配置に復元
+      - name: Download all simulation data
+        uses: actions/download-artifact@v4
+        with:
+          pattern: simulation-data-*
+          merge-multiple: false # ディレクトリ構造を維持するため
+
+      # ダウンロードされた成果物を正しいパス (data/set_a/, data/set_b/) に配置
+      - name: Move artifacts to correct data directory
+        run: |
+          mkdir -p data
+          if [ -d "simulation-data-a" ]; then
+            cp -r simulation-data-a/* data/ || true
+          fi
+          if [ -d "simulation-data-b" ]; then
+            cp -r simulation-data-b/* data/ || true
+          fi
+          # 不要になった一時フォルダを削除
+          rm -rf simulation-data-a simulation-data-b
+
+      # 最新データが揃った状態でHTMLレポートを生成
       - name: Generate HTML report
         run: python scripts/generate_report.py
 
-      - name: Commit report
+      - name: Commit data and report changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "docs: auto-generate report [${{ github.run_number }}]"
-          file_pattern: "docs/**"
+          commit_message: "chore: update simulation data and reports [run-${{ github.run_number }}]"
+          file_pattern: "data/** docs/**"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
       - name: Setup GitHub Pages
