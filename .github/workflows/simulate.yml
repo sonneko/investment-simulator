@@ -37,12 +37,6 @@ jobs:
         set: [a, b]
       fail-fast: false    # 片方が失敗しても続ける
 
-    # 手動実行でセットを絞り込む場合のフィルタ
-    if: >
-      github.event_name != 'workflow_dispatch' ||
-      github.event.inputs.set_filter == 'both' ||
-      github.event.inputs.set_filter == matrix.set
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
