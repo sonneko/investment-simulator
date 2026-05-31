@@ -1,0 +1,138 @@
+name: LLM Investment Simulator
+
+on:
+  schedule:
+    # 平日 (月〜金) の JST 09:00 / 13:00 / 17:00 に起動
+    # JST = UTC+9 なので UTC 00:00 / 04:00 / 08:00
+    - cron: "0 0 * * 1-5"   # JST 09:00
+    - cron: "0 4 * * 1-5"   # JST 13:00
+    - cron: "0 8 * * 1-5"   # JST 17:00
+  workflow_dispatch:          # 手動実行用
+    inputs:
+      set_filter:
+        description: "実行するセット (a / b / both)"
+        required: false
+        default: "both"
+      session_override:
+        description: "セッション番号 (1/2/3, 空欄=自動判定)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write      # data/ への commit 用
+  pages: write         # GitHub Pages deploy 用
+  id-token: write
+
+concurrency:
+  group: "simulate"
+  cancel-in-progress: false   # 途中キャンセルで資産が壊れないよう直列化
+
+jobs:
+  # ────────────────────────────────────────────────
+  simulate:
+    name: Run Simulation (Set ${{ matrix.set }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        set: [a, b]
+      fail-fast: false    # 片方が失敗しても続ける
+
+    # 手動実行でセットを絞り込む場合のフィルタ
+    if: >
+      github.event_name != 'workflow_dispatch' ||
+      github.event.inputs.set_filter == 'both' ||
+      github.event.inputs.set_filter == matrix.set
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # セッション番号を決定 (UTC時間から自動判定)
+      - name: Determine session number
+        id: session
+        run: |
+          if [ -n "${{ github.event.inputs.session_override }}" ]; then
+            echo "num=${{ github.event.inputs.session_override }}" >> $GITHUB_OUTPUT
+          else
+            HOUR=$(date -u +%H)
+            if [ "$HOUR" = "00" ]; then
+              echo "num=1" >> $GITHUB_OUTPUT
+            elif [ "$HOUR" = "04" ]; then
+              echo "num=2" >> $GITHUB_OUTPUT
+            else
+              echo "num=3" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run simulation – Set ${{ matrix.set }} / Session ${{ steps.session.outputs.num }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FEE_RATE: ${{ vars.FEE_RATE || '0.001' }}
+        run: |
+          python scripts/simulate.py \
+            --set ${{ matrix.set }} \
+            --session ${{ steps.session.outputs.num }}
+
+      # data/ の変更を commit & push
+      - name: Commit data changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): set-${{ matrix.set }} session-${{ steps.session.outputs.num }} [${{ github.run_number }}]"
+          file_pattern: "data/set_${{ matrix.set }}/**"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+
+  # ────────────────────────────────────────────────
+  report:
+    name: Generate & Deploy Report
+    runs-on: ubuntu-latest
+    needs: simulate
+    if: always()   # シミュレーションが一部失敗しても実行
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main           # simulate job の commit を含む最新を取得
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate HTML report
+        run: python scripts/generate_report.py
+
+      - name: Commit report
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: auto-generate report [${{ github.run_number }}]"
+          file_pattern: "docs/**"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
