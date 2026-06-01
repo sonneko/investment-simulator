@@ -1,17 +1,16 @@
 {
   "news_keywords": [
-    "AI 半導体 株価",
-    "NVIDIA 決算",
-    "ビットコイン 仮想通貨",
-    "テック株 成長",
-    "新興国 株式"
+    "AI",
+    "Semiconductor",
+    "NVIDIA earnings",
+    "Bitcoin regulation",
+    "Tech growth"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "ARKK",
     "BTC-USD",
-    "TSLA",
-    "MSTR"
+    "MSTR",
+    "TSLA"
   ]
 }

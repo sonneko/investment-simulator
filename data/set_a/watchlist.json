@@ -1,10 +1,14 @@
 {
-    "news_keywords": [
-        "S&P500 ETF",
-        "米国債 利回り",
-        "インフレ 経済指標",
-        "日銀 金融政策",
-        "為替 ドル円"
-    ],
-    "tickers": ["SPY", "AGG", "GLD", "VTI", "BND", "USDJPY=X"]
+  "news_keywords": [
+    "米国債利回り",
+    "インフレ 経済指標",
+    "FRB 金融政策",
+    "ドル円 160円"
+  ],
+  "tickers": [
+    "VTI",
+    "AGG",
+    "BND",
+    "GLD"
+  ]
 }

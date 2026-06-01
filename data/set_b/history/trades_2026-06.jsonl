@@ -1,0 +1,3 @@
+{"timestamp": "2026-06-01T11:59:01.357223+09:00", "action": "buy", "ticker": "NVDA", "qty": 94.0, "price": 211.14, "fee": 19.8472, "currency": "USD", "reason": "絶好調の決算発表とAI半導体需要の継続を背景に、直近の押し目を狙って上限の40%近くまで集中投資します。", "status": "ok", "set": "b", "session": 3}
+{"timestamp": "2026-06-01T11:59:01.357259+09:00", "action": "buy", "ticker": "QQQ", "qty": 20.0, "price": 738.31, "fee": 14.7662, "currency": "USD", "reason": "ナスダック100指数に連動するETFを通じて、テックグロース株全体の強い上昇モメンタムを享受します。", "status": "ok", "set": "b", "session": 3}
+{"timestamp": "2026-06-01T11:59:01.357275+09:00", "action": "buy", "ticker": "BTC-USD", "qty": 0.061, "price": 73677.9375, "fee": 4.4944, "currency": "USD", "reason": "機関投資家マネーの流入により底堅く推移しているビットコインを、仮想通貨枠（最大10%）の範囲内で組み入れます。", "status": "ok", "set": "b", "session": 3}
