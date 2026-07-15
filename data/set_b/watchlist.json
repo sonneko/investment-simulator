@@ -1,14 +1,14 @@
 {
   "news_keywords": [
-    "Semiconductor",
     "AI",
-    "Bitcoin",
-    "TSMC",
-    "NVDA"
+    "Semiconductor",
+    "Inflation",
+    "TSMC Earnings"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "BTC-USD"
+    "BTC-USD",
+    "TSM"
   ]
 }
