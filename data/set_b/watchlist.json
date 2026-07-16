@@ -1,14 +1,12 @@
 {
   "news_keywords": [
     "AI chip demand",
-    "NVIDIA earnings",
-    "Nasdaq momentum",
-    "ASML forecast"
+    "ASML earnings",
+    "NVIDIA momentum"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "BTC-USD",
     "TSM"
   ]
 }
