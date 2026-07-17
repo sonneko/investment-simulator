@@ -1,9 +1,9 @@
 {
   "news_keywords": [
-    "FOMC",
-    "Inflation Rate",
-    "US Treasury Yield",
-    "Gold Price"
+    "FOMC interest rate",
+    "US CPI Inflation",
+    "US Treasury 10Y Yield",
+    "Gold Price Trend"
   ],
   "tickers": [
     "VTI",
