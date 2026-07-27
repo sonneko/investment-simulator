@@ -1,14 +1,12 @@
 {
   "news_keywords": [
+    "NVDA",
     "AI chip demand",
-    "NVIDIA momentum",
-    "Semiconductor capex",
     "Bitcoin trend"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "TSM",
     "BTC-USD"
   ]
 }
