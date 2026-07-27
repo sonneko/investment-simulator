@@ -1,12 +1,15 @@
 {
   "news_keywords": [
-    "NVDA",
     "AI chip demand",
+    "NVDA earnings",
+    "Nasdaq momentum",
     "Bitcoin trend"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "BTC-USD"
+    "BTC-USD",
+    "TSM",
+    "ASML"
   ]
 }
