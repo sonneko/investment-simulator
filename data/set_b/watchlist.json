@@ -1,13 +1,14 @@
 {
   "news_keywords": [
-    "AI chip demand",
     "NVDA earnings",
+    "AI chip demand",
     "Nasdaq momentum",
     "Bitcoin ETF"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "BTC-USD"
+    "BTC-USD",
+    "SPY"
   ]
 }
