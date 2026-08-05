@@ -1,0 +1,1 @@
+{"timestamp": "2026-08-05T10:54:25.835488+09:00", "action": "sell", "ticker": "VTI", "qty": 1.0, "price": 380.82, "fee": 0.3808, "currency": "USD", "reason": "1銘柄あたりの構成比率上限20%を超過したため、リバランス目的で1株売却。", "status": "ok", "actual_gain": 380.4392, "set": "a", "session": 3}
