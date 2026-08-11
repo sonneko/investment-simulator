@@ -3,7 +3,8 @@
     "US CPI",
     "FOMC",
     "Fed interest rate",
-    "US Treasury Yields"
+    "US Treasury Yields",
+    "Inflation"
   ],
   "tickers": [
     "VTI",
