@@ -1,10 +1,9 @@
 {
   "news_keywords": [
     "US CPI",
+    "US PPI",
     "FOMC",
-    "Fed interest rate",
-    "US Treasury Yields",
-    "Inflation"
+    "Fed interest rate"
   ],
   "tickers": [
     "VTI",
