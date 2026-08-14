@@ -3,11 +3,13 @@
     "NVDA earnings",
     "AI chip demand",
     "Nasdaq momentum",
-    "Bitcoin"
+    "Bitcoin ETF"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
-    "BTC-USD"
+    "BTC-USD",
+    "TSM",
+    "ARM"
   ]
 }
