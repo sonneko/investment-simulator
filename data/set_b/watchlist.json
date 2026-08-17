@@ -1,15 +1,17 @@
 {
   "news_keywords": [
     "NVDA earnings",
-    "AI chip demand",
-    "Nasdaq momentum",
-    "Bitcoin ETF"
+    "AI GPU demand",
+    "datacenter capex",
+    "Fed rate cut",
+    "semiconductor"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
     "BTC-USD",
     "TSM",
-    "ARM"
+    "ARM",
+    "AVGO"
   ]
 }
