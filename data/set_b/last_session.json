@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-08-18T09:51:35.810712+09:00",
-  "session": 1,
-  "reasoning": "現在のポートフォリオはQQQ（約53.5%）、NVDA（約41.9%）、BTC-USD（約4.3%）で構成されており、AI・ハイテクの力強い成長モメンタムを最大限捉えるフルインベストメント状態を維持しています。ニュース面でも世界半導体売上高の大幅増やデータセンターCapExの加速など、テクノロジーセクターへの追い風が継続しています。NVDAは個別集中投資上限（40%）近傍にありますが、上昇トレンドを維持しているため無理な利益確定は行わず保有継続とします。待機資金（135ドル）が限られていることと現在の配分が投資方針に合致していることから、本セッションでの売買は見送り、トレンドフォローを継続します。",
+  "timestamp": "2026-08-18T13:31:33.466958+09:00",
+  "session": 2,
+  "reasoning": "現在のポートフォリオはQQQ（ハイテク主力ETF）、NVDA（AI半導体リーダー）、BTC-USD（暗号資産サテライト）で構成されており、高成長セクターへの集中投資という当エージェントの基本方針に合致しています。最新ニュースでもAIデータセンター向けCapExの加速、世界半導体売上高の月間1000億ドル突破など、ファンダメンタルズおよび業界のモメンタムは極めて強力です。手元資金は135ドル程度と限定的であり、現有ポジションを維持して複利・モメンタム効果を最大化することがリターン追求に最適と判断し、今回はホールド（売買なし）とします。",
   "trades_executed": [],
-  "summary_for_report": "AIおよびハイテク市場の強気トレンドと半導体売上高の好調なデータを背景に、QQQ・NVDA・BTCのフルインベストメント構成を維持しました。現在の配分が最適であるため今回は新規トレードを行わず、モメンタムに乗るポジションをホールドして超過リターンを狙います。",
+  "summary_for_report": "AIインフラ需要と世界半導体売上高の力強い成長が継続していることを確認しました。現在のQQQ・NVDA・BTCのハイリターン志向ポートフォリオは極めて良好なモメンタムを維持しているため、売買は行わずフルインベストメントでの保有を継続します。",
   "portfolio_value": {
-    "total_usd": 50479.27,
+    "total_usd": NaN,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "NVDA",
         "qty": 94.0,
-        "price": 225.01,
-        "value": 21150.94,
+        "price": NaN,
+        "value": NaN,
         "currency": "USD"
       },
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 729.87,
-        "value": 27005.19,
+        "price": NaN,
+        "value": NaN,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.034,
-        "price": 64332.7109,
-        "value": 2187.3121706,
+        "price": 64106.9609,
+        "value": 2179.6366706,
         "currency": "USD"
       }
     ],
@@ -37,43 +37,43 @@
   },
   "prices_snapshot": {
     "NVDA": {
-      "price": 225.01,
-      "change_pct": -0.07,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 236.54,
       "52w_low": 164.07,
       "currency": "USD"
     },
     "QQQ": {
-      "price": 729.87,
-      "change_pct": -0.16,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 748.65,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 64332.7109,
-      "change_pct": 2.41,
+      "price": 64106.9609,
+      "change_pct": 2.05,
       "52w_high": 126198.0703,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "TSM": {
-      "price": 430.97,
-      "change_pct": 1.08,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 479.0,
       "52w_low": 223.7,
       "currency": "USD"
     },
     "ARM": {
-      "price": 271.43,
-      "change_pct": -2.87,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 452.7,
       "52w_low": 100.02,
       "currency": "USD"
     },
     "AVGO": {
-      "price": 392.43,
-      "change_pct": -0.14,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 495.0,
       "52w_low": 281.87,
       "currency": "USD"
