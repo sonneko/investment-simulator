@@ -3,8 +3,8 @@
     "FOMC",
     "Federal Reserve interest rate",
     "US inflation CPI PPI",
-    "US employment data",
-    "Treasury yields"
+    "Treasury yields",
+    "US employment data"
   ],
   "tickers": [
     "VTI",
