@@ -3,15 +3,14 @@
     "NVDA earnings",
     "AI GPU demand",
     "datacenter capex",
-    "Fed rate cut",
-    "semiconductor sales"
+    "semiconductor sales",
+    "Fed rate cut"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
     "BTC-USD",
     "TSM",
-    "ARM",
     "AVGO"
   ]
 }
