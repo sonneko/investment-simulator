@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-08-21T09:55:42.538812+09:00",
-  "session": 1,
-  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 17.494113338s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 17\n}\n]",
+  "timestamp": "2026-08-21T13:33:38.653037+09:00",
+  "session": 2,
+  "reasoning": "現在のポートフォリオはQQQ（約53.3%）、NVDA（約41.3%）、BTC-USD（約5.2%）で構成されており、キャッシュ比率は0.3%未満とフルインベストメント状態を維持しています。直近ではビットコインが前日比+8.2%急騰して74,000ドル台を突破し、暗号資産市場のモメンタムが非常に強力です。また、AI・データセンター向け設備投資（Capex）の継続的な拡大ニュースが続いており、NVDAを中心とする半導体セクターの成長ドライバーは堅調です。現在保有銘柄はいずれも利益志向のモメンタム投資方針に合致しており、損切り基準（-10%）や上限比率（BTC上限10%、単一株上限40%前後）からの逸脱もないため、取引手数料を抑えて全銘柄ホールドを継続します。",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 17.494113338s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 17\n}\n]",
+  "summary_for_report": "ビットコインが前日比+8.2%と大幅上昇して74,000ドル台を回復し、ポートフォリオのリターンを力強く牽引しています。AIデータセンター需要の拡大トレンドも継続していることから、QQQ、NVDA、BTC-USDのフルインベストメント体制を維持し、超過リターンの最大化を狙います。",
   "portfolio_value": {
-    "total_usd": 49328.4,
+    "total_usd": 49372.55,
     "total_jpy": 0,
     "breakdown": [
       {
@@ -25,8 +25,8 @@
       {
         "ticker": "BTC-USD",
         "qty": 0.034,
-        "price": 73654.8594,
-        "value": 2504.2652196000004,
+        "price": 74953.5234,
+        "value": 2548.4197956000003,
         "currency": "USD"
       }
     ],
@@ -51,15 +51,15 @@
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 73654.8594,
-      "change_pct": 6.34,
+      "price": 74953.5234,
+      "change_pct": 8.21,
       "52w_high": 126198.0703,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "TSM": {
-      "price": 416.0,
-      "change_pct": 0.95,
+      "price": NaN,
+      "change_pct": NaN,
       "52w_high": 479.0,
       "52w_low": 225.63,
       "currency": "USD"
@@ -68,7 +68,7 @@
       "price": 364.03,
       "change_pct": 0.43,
       "52w_high": 495.0,
-      "52w_low": 286.17,
+      "52w_low": 287.17,
       "currency": "USD"
     }
   }
