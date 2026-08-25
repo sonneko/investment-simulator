@@ -3,8 +3,8 @@
     "Federal Reserve interest rate",
     "Treasury yields",
     "US inflation CPI PPI",
-    "gold price",
-    "FOMC minutes"
+    "FOMC minutes",
+    "gold price"
   ],
   "tickers": [
     "VTI",
