@@ -1,0 +1,1 @@
+{"timestamp": "2026-08-28T03:50:01.856170+09:00", "action": "sell", "ticker": "NVDA", "qty": 5.0, "price": 226.18, "fee": 1.1309, "currency": "USD", "reason": "決算後の急騰（+7.88%）に伴う集中投資上限40%の超過是正および積極的利益確定", "status": "ok", "actual_gain": 1129.7691, "set": "b", "session": 3}

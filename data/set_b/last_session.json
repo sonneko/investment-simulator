@@ -1,72 +1,87 @@
 {
-  "timestamp": "2026-08-28T00:16:50.769169+09:00",
+  "timestamp": "2026-08-28T03:50:01.857075+09:00",
   "session": 3,
-  "reasoning": "APIエラー: 504 Deadline Exceeded",
-  "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: 504 Deadline Exceeded",
+  "reasoning": "NVDAが前日比+7.88%と力強く急伸し、評価額がポートフォリオ全体の41.95%に達しました。利益志向戦略の基本原則である『集中投資上限40%』の遵守、および『積極的な利益確定』を実行するため、NVDAを5株部分売却（約1,130ドル利確）します。売却後もNVDA比率は約39.7%を維持し、AI半導体市場の強気モメンタムを最大限享受しつつ、余剰現金を確保して次の投資機会に備えます。QQQ（約52.4%）およびBTC-USD（約5.4%）は上昇トレンドが継続しているため保有を継続します。",
+  "trades_executed": [
+    {
+      "timestamp": "2026-08-28T03:50:01.856170+09:00",
+      "action": "sell",
+      "ticker": "NVDA",
+      "qty": 5.0,
+      "price": 226.18,
+      "fee": 1.1309,
+      "currency": "USD",
+      "reason": "決算後の急騰（+7.88%）に伴う集中投資上限40%の超過是正および積極的利益確定",
+      "status": "ok",
+      "actual_gain": 1129.7691,
+      "set": "b",
+      "session": 3
+    }
+  ],
+  "summary_for_report": "NVDAが前日比+7.88%と急伸したため、集中投資上限（40%）遵守と利益確定を目的に5株を部分利確しました。NVDA比率を約39.7%に調整しつつ、QQQとBTC-USDの上昇モメンタムをフルに捉える強気ポジションを維持しています。",
   "portfolio_value": {
-    "total_usd": 50696.25,
+    "total_usd": 50686.05,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "NVDA",
-        "qty": 94.0,
-        "price": 225.81,
-        "value": 21226.14,
+        "qty": 89.0,
+        "price": 226.18,
+        "value": 20130.02,
         "currency": "USD"
       },
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 719.02,
-        "value": 26603.739999999998,
+        "price": 718.13,
+        "value": 26570.81,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.034,
-        "price": 80310.0781,
-        "value": 2730.5426554,
+        "price": 79989.0078,
+        "value": 2719.6262652000005,
         "currency": "USD"
       }
     ],
     "cash": {
-      "USD": 135.8242,
+      "USD": 1265.5933,
       "JPY": 0
     }
   },
   "prices_snapshot": {
     "NVDA": {
-      "price": 225.81,
-      "change_pct": 7.7,
+      "price": 226.18,
+      "change_pct": 7.88,
       "52w_high": 236.54,
       "52w_low": 164.07,
       "currency": "USD"
     },
     "QQQ": {
-      "price": 719.02,
-      "change_pct": 1.08,
+      "price": 718.13,
+      "change_pct": 0.95,
       "52w_high": 748.65,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 80310.0781,
-      "change_pct": 1.62,
+      "price": 79989.0078,
+      "change_pct": 1.22,
       "52w_high": 126198.0703,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "TSM": {
-      "price": 426.685,
-      "change_pct": 2.15,
+      "price": 425.06,
+      "change_pct": 1.76,
       "52w_high": 479.0,
       "52w_low": 225.63,
       "currency": "USD"
     },
     "AVGO": {
-      "price": 368.93,
-      "change_pct": 3.75,
+      "price": 368.505,
+      "change_pct": 3.63,
       "52w_high": 495.0,
       "52w_low": 287.17,
       "currency": "USD"
