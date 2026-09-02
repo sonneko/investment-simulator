@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-09-01T22:00:02.628294+09:00",
+  "timestamp": "2026-09-02T11:21:07.589524+09:00",
   "session": 3,
-  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 57.389460669s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 57\n}\n]",
+  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 52.428572647s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 52\n}\n]",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 57.389460669s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 57\n}\n]",
+  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.7-flash\nPlease retry in 52.428572647s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.7-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 52\n}\n]",
   "portfolio_value": {
-    "total_usd": 50086.08,
+    "total_usd": 49422.36,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "NVDA",
         "qty": 89.0,
-        "price": 220.78,
-        "value": 19649.420000000002,
+        "price": 217.44,
+        "value": 19352.16,
         "currency": "USD"
       },
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 716.76,
-        "value": 26520.12,
+        "price": 707.64,
+        "value": 26182.68,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.034,
-        "price": 77968.9766,
-        "value": 2650.9452044,
+        "price": 77115.3672,
+        "value": 2621.9224848,
         "currency": "USD"
       }
     ],
@@ -37,36 +37,36 @@
   },
   "prices_snapshot": {
     "NVDA": {
-      "price": 220.78,
-      "change_pct": 1.48,
+      "price": 217.44,
+      "change_pct": -1.51,
       "52w_high": 236.54,
       "52w_low": 164.07,
       "currency": "USD"
     },
     "QQQ": {
-      "price": 716.76,
-      "change_pct": 0.05,
+      "price": 707.64,
+      "change_pct": -1.27,
       "52w_high": 748.65,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 77968.9766,
-      "change_pct": -0.74,
+      "price": 77115.3672,
+      "change_pct": -1.82,
       "52w_high": 126198.0703,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "TSM": {
-      "price": 415.32,
-      "change_pct": -0.53,
+      "price": 414.0,
+      "change_pct": -0.32,
       "52w_high": 479.0,
       "52w_low": 225.63,
       "currency": "USD"
     },
     "AVGO": {
-      "price": 370.34,
-      "change_pct": 0.42,
+      "price": 369.68,
+      "change_pct": -0.18,
       "52w_high": 495.0,
       "52w_low": 287.17,
       "currency": "USD"
