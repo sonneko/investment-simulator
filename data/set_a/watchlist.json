@@ -8,8 +8,8 @@
   ],
   "tickers": [
     "VTI",
-    "AGG",
     "BND",
+    "AGG",
     "GLD"
   ]
 }
