@@ -1,9 +1,10 @@
 {
   "news_keywords": [
-    "FOMC interest rates",
-    "US Treasury yield 10-year",
-    "US inflation CPI",
-    "Gold commodity inflation"
+    "CPI",
+    "FOMC",
+    "Treasury yields",
+    "Inflation",
+    "Interest rates"
   ],
   "tickers": [
     "VTI",
