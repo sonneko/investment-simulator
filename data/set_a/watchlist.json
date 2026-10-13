@@ -3,7 +3,8 @@
     "CPI",
     "FOMC",
     "Treasury yields",
-    "Inflation"
+    "Inflation",
+    "US retail sales"
   ],
   "tickers": [
     "VTI",
