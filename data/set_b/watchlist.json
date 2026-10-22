@@ -1,16 +1,17 @@
 {
   "news_keywords": [
     "Vera Rubin NVL72",
+    "ビッグテック 決算",
     "ハイパースケーラー CapEx",
     "ビットコイン ETF 流入",
-    "TSMC 3nm",
-    "ビッグテック 決算"
+    "TSMC 3nm"
   ],
   "tickers": [
     "NVDA",
     "QQQ",
     "BTC-USD",
     "TSM",
-    "AVGO"
+    "AVGO",
+    "MSFT"
   ]
 }
