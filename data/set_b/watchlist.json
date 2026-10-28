@@ -1,17 +1,17 @@
 {
   "news_keywords": [
     "ビッグテック 決算",
-    "MSFT 決算",
-    "GOOGL 決算",
-    "ハイパースケーラー CapEx",
-    "Vera Rubin NVL72",
-    "ビットコイン ETF"
+    "AI CapEx",
+    "MSFT Azure 成長率",
+    "GOOGL クラウド",
+    "NVIDIA Rubin"
   ],
   "tickers": [
-    "NVDA",
     "QQQ",
+    "NVDA",
     "BTC-USD",
     "MSFT",
+    "GOOGL",
     "TSM"
   ]
 }
