@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-10-29T19:51:50.837781+09:00",
+  "timestamp": "2026-10-30T00:14:00.324556+09:00",
   "session": 3,
-  "reasoning": "現在のポートフォリオ配分は、QQQが約53.7%、NVDAが約38.3%、BTC-USDが約6.4%、現金が約1.6%となっており、設定しているターゲット比率（QQQ: 50〜55%、NVDA: 38〜40%、BTC: 6〜8%）に完璧に合致しています。手元キャッシュは777ドル程度であり、QQQ（725ドル）を1株買い増すにはキャッシュバッファーが枯渇するリスクがあります。また、NVDAおよびBTCは日次で小幅な調整（-1%〜-1.5%程度）を見せているものの、中期上昇トレンドおよびファンダメンタルズ（AI CapEx拡大等）に変化はなく、損切り基準（-10%）にも遠く及びません。モメンタムを維持しつつ無駄な取引コストを避けるため、今回は取引を行わずフルインベストメントに近い強気ポジションを継続保有（ホールド）します。",
+  "reasoning": "APIエラー: 504 Deadline expired before operation could complete.",
   "trades_executed": [],
-  "summary_for_report": "現在の資産配分がターゲット比率（QQQ: 53.7%、NVDA: 38.3%、BTC: 6.4%）に合致しており、各資産のモメンタムも継続しているため、今回は売買を行わず全ポジションをホールドしました。無駄な取引手数料を回避しつつ、AIおよび大型ハイテク株主導の上昇トレンドを最大限享受する強気姿勢を維持します。",
+  "summary_for_report": "APIエラーのためスキップ: 504 Deadline expired before operation could complete.",
   "portfolio_value": {
-    "total_usd": 49997.26,
+    "total_usd": 49548.6,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "NVDA",
         "qty": 89.0,
-        "price": 215.38,
-        "value": 19168.82,
+        "price": 214.025,
+        "value": 19048.225000000002,
         "currency": "USD"
       },
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 725.61,
-        "value": 26847.57,
+        "price": 715.62,
+        "value": 26477.94,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.04,
-        "price": 80094.4688,
-        "value": 3203.778752,
+        "price": 81133.4062,
+        "value": 3245.336248,
         "currency": "USD"
       }
     ],
@@ -37,45 +37,45 @@
   },
   "prices_snapshot": {
     "QQQ": {
-      "price": 725.61,
-      "change_pct": 0.6,
+      "price": 715.62,
+      "change_pct": -1.38,
       "52w_high": 762.86,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "NVDA": {
-      "price": 215.38,
-      "change_pct": -1.17,
+      "price": 214.025,
+      "change_pct": -0.63,
       "52w_high": 243.37,
       "52w_low": 164.27,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 80094.4688,
-      "change_pct": -1.44,
+      "price": 81133.4062,
+      "change_pct": -0.17,
       "52w_high": 111612.3516,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "MSFT": {
-      "price": 531.01,
-      "change_pct": -0.06,
+      "price": 524.405,
+      "change_pct": -1.24,
       "52w_high": 551.15,
       "52w_low": 349.2,
       "currency": "USD"
     },
-    "GOOGL": {
-      "price": 324.89,
-      "change_pct": 1.34,
-      "52w_high": 408.61,
-      "52w_low": 270.7,
-      "currency": "USD"
-    },
     "TSM": {
-      "price": 439.51,
-      "change_pct": 0.6,
+      "price": 433.125,
+      "change_pct": -1.45,
       "52w_high": 487.47,
       "52w_low": 266.82,
+      "currency": "USD"
+    },
+    "GOOGL": {
+      "price": 284.9,
+      "change_pct": -12.31,
+      "52w_high": 408.61,
+      "52w_low": 270.7,
       "currency": "USD"
     }
   }
