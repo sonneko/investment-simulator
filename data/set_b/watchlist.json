@@ -1,17 +1,18 @@
 {
   "news_keywords": [
-    "ビッグテック 決算",
-    "AI CapEx",
-    "MSFT Azure",
-    "GOOGL クラウド",
-    "NVIDIA Rubin"
+    "AI",
+    "semiconductor",
+    "NVIDIA",
+    "data center",
+    "crypto regulation",
+    "earnings"
   ],
   "tickers": [
     "QQQ",
     "NVDA",
     "BTC-USD",
     "MSFT",
-    "GOOGL",
-    "TSM"
+    "TSM",
+    "GOOGL"
   ]
 }
