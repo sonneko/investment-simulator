@@ -2,15 +2,15 @@
   "news_keywords": [
     "AI",
     "semiconductor",
-    "Big Tech",
-    "earnings",
+    "NVIDIA",
+    "Big Tech earnings",
     "crypto"
   ],
   "tickers": [
-    "QQQ",
     "NVDA",
+    "QQQ",
     "BTC-USD",
-    "MSFT",
-    "TSM"
+    "TSM",
+    "MSFT"
   ]
 }
