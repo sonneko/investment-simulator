@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-11-10T21:14:07.300215+09:00",
+  "timestamp": "2026-11-11T01:02:20.804986+09:00",
   "session": 3,
-  "reasoning": "市場動向を分析すると、ナスダック100（QQQ）が+3.54%と力強く反発しており、ハイテク主導の上昇モメンタムが明確に確認できます。一方でNVDAは-4.27%の一時的調整を見せていますが、Rubinアーキテクチャの進展やTSMCの設備投資拡大など中長期のファンダメンタルズは極めて堅調です。下落率も設定している損切りルール（-10%）には達していません。また、BTCは現物ETFからの資金流出が報じられており軟調ですが、ポートフォリオ比率は6.63%と上限10%および目標レンジ（5-8%）内に収まっています。現在の現金余力（約777ドル）および『1回で現金の50%以上の過大投資禁止』『安易なナンピン買い禁止』のルールを鑑み、QQQの牽引と半導体セクターの再反発を捉えるため、既存ポジションを全量維持（ホールド）してモメンタム継続を狙います。",
+  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 39.215323353s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 39\n}\n]",
   "trades_executed": [],
-  "summary_for_report": "QQQが+3.54%と力強く上昇しポートフォリオを牽引。NVDAは一時的に-4.27%の押し目となりましたが、Rubin需要やTSMC巨額投資などAIファンダメンタルズは強固であり損切り水準にも達していないため保有を継続。BTCも目標比率内（6.6%）で維持し、今回は新規売買を行わずハイテク反発モメンタムに乗る方針を堅持しました。",
+  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 39.215323353s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 39\n}\n]",
   "portfolio_value": {
-    "total_usd": 44784.51,
+    "total_usd": 43745.05,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "NVDA",
         "qty": 89.0,
-        "price": 178.67,
-        "value": 15901.63,
+        "price": 169.792,
+        "value": 15111.488,
         "currency": "USD"
       },
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 679.35,
-        "value": 25135.95,
+        "price": 673.74,
+        "value": 24928.38,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.04,
-        "price": 74245.75,
-        "value": 2969.83,
+        "price": 73202.2188,
+        "value": 2928.088752,
         "currency": "USD"
       }
     ],
@@ -37,36 +37,36 @@
   },
   "prices_snapshot": {
     "NVDA": {
-      "price": 178.67,
-      "change_pct": -4.27,
+      "price": 169.792,
+      "change_pct": -4.97,
       "52w_high": 243.37,
       "52w_low": 164.27,
       "currency": "USD"
     },
     "QQQ": {
-      "price": 679.35,
-      "change_pct": 3.54,
+      "price": 673.74,
+      "change_pct": -0.83,
       "52w_high": 762.86,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 74245.75,
-      "change_pct": -1.3,
+      "price": 73202.2188,
+      "change_pct": -2.69,
       "52w_high": 107428.2578,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "TSM": {
-      "price": 388.62,
-      "change_pct": 3.51,
+      "price": 395.65,
+      "change_pct": 1.81,
       "52w_high": 487.47,
       "52w_low": 266.82,
       "currency": "USD"
     },
     "MSFT": {
-      "price": 545.18,
-      "change_pct": 2.75,
+      "price": 542.83,
+      "change_pct": -0.43,
       "52w_high": 559.15,
       "52w_low": 349.2,
       "currency": "USD"
