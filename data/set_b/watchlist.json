@@ -1,15 +1,14 @@
 {
   "news_keywords": [
-    "TSMC semiconductor capex",
-    "NVIDIA Rubin Blackwell demand",
-    "AI server tech earnings",
-    "Bitcoin spot ETF net flow",
-    "Nasdaq tech momentum breakout"
+    "TSMC semiconductor capex AI demand",
+    "NVIDIA Rubin Blackwell earnings guidance",
+    "Big Tech AI capex free cash flow",
+    "Bitcoin spot ETF flows institutional"
   ],
   "tickers": [
+    "TSM",
     "NVDA",
     "QQQ",
-    "TSM",
     "BTC-USD",
     "MSFT"
   ]
