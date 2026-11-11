@@ -1,0 +1,2 @@
+{"timestamp": "2026-11-11T13:10:18.217853+09:00", "action": "sell", "ticker": "NVDA", "qty": 40.0, "price": 168.89, "fee": 6.7556, "currency": "USD", "reason": "52週安値近辺までの下落（-5.47%）によりモメンタムが悪化。リスク管理と資金再配分のため40株を部分売却。", "status": "ok", "actual_gain": 6748.8444, "set": "b", "session": 2}
+{"timestamp": "2026-11-11T13:10:18.217890+09:00", "action": "buy", "ticker": "TSM", "qty": 9.0, "price": 396.48, "fee": 3.5683, "currency": "USD", "reason": "AI需要加速と設備投資増額を背景に+2.02%と市場逆行高。上昇モメンタムに乗る新規買い付け（売却後現金の50%以内の投資ルールを遵守）。", "status": "ok", "set": "b", "session": 2}
