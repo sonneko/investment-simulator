@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-12T14:37:34.337781+09:00",
+  "timestamp": "2026-11-12T21:26:19.473359+09:00",
   "session": 3,
-  "reasoning": "APIエラー: 504 Deadline Exceeded",
+  "reasoning": "APIエラー: 504 Deadline expired before operation could complete.",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: 504 Deadline Exceeded",
+  "summary_for_report": "APIエラーのためスキップ: 504 Deadline expired before operation could complete.",
   "portfolio_value": {
-    "total_usd": 44662.99,
+    "total_usd": 44639.82,
     "total_jpy": 0,
     "breakdown": [
       {
@@ -25,8 +25,8 @@
       {
         "ticker": "BTC-USD",
         "qty": 0.04,
-        "price": 73529.9062,
-        "value": 2941.1962479999997,
+        "price": 72950.6484,
+        "value": 2918.0259360000005,
         "currency": "USD"
       },
       {
@@ -65,8 +65,8 @@
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 73529.9062,
-      "change_pct": -0.26,
+      "price": 72950.6484,
+      "change_pct": -1.37,
       "52w_high": 104005.4922,
       "52w_low": 57747.7656,
       "currency": "USD"
