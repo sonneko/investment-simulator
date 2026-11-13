@@ -2,21 +2,19 @@ name: LLM Investment Simulator
 
 on:
   schedule:
-    # 平日 (月〜金) の JST 09:00 / 13:00 / 17:00 に起動
-    # JST = UTC+9 なので UTC 00:00 / 04:00 / 08:00
-    - cron: "0 0 * * 1-5"   # JST 09:00
-    - cron: "0 4 * * 1-5"   # JST 13:00
-    - cron: "0 8 * * 1-5"   # JST 17:00
-  workflow_dispatch:          # 手動実行用
+    - cron: "0 0 * * 1-5"
+    - cron: "0 4 * * 1-5"
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch:
     inputs:
       session_override:
-        description: "セッション番号 (1/2/3, 空欄=自動判定)"
+        description: "セッション番号 (1/2/3、空欄=時刻から判定)"
         required: false
         default: ""
 
 permissions:
-  contents: write      # data/ への commit 用
-  pages: write         # GitHub Pages deploy 用
+  contents: write
+  pages: write
   id-token: write
 
 concurrency:
@@ -27,67 +25,97 @@ jobs:
   run-all:
     name: Simulation and Report
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install yfinance
-
+        run: pip install -r requirements.txt
       - name: Determine session number
         id: session
+        env:
+          OVERRIDE: ${{ inputs.session_override }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        shell: bash
         run: |
-          if [ -n "${{ github.event.inputs.session_override }}" ]; then
-            echo "num=${{ github.event.inputs.session_override }}" >> $GITHUB_OUTPUT
+          if [[ -n "$OVERRIDE" ]]; then
+            case "$OVERRIDE" in 1|2|3) num="$OVERRIDE" ;; *) echo 'Invalid session_override' >&2; exit 1 ;; esac
+          elif [[ "$EVENT_NAME" == schedule ]]; then
+            case "$EVENT_SCHEDULE" in
+              '0 0 * * 1-5') num=1 ;;
+              '0 4 * * 1-5') num=2 ;;
+              '0 8 * * 1-5') num=3 ;;
+              *) echo 'Unknown schedule' >&2; exit 1 ;;
+            esac
           else
-            HOUR=$(date -u +%H)
-            if [ "$HOUR" = "00" ]; then
-              echo "num=1" >> $GITHUB_OUTPUT
-            elif [ "$HOUR" = "04" ]; then
-              echo "num=2" >> $GITHUB_OUTPUT
-            else
-              echo "num=3" >> $GITHUB_OUTPUT
-            fi
+            case "$(date -u +%H)" in 00) num=1 ;; 04) num=2 ;; *) num=3 ;; esac
           fi
-
+          echo "num=$num" >> "$GITHUB_OUTPUT"
       - name: Run simulation (Set A)
+        id: set_a
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FEE_RATE: ${{ vars.FEE_RATE || '0.001' }}
-        run: python scripts/simulate.py --set a --session ${{ steps.session.outputs.num }}
-
+          SESSION: ${{ steps.session.outputs.num }}
+        run: python scripts/simulate.py --set a --session "$SESSION"
+      - name: Save Set A result
+        id: commit_a
+        continue-on-error: true
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: save Set A [run-${{ github.run_number }}]"
+          file_pattern: "data/**"
       - name: Run simulation (Set B)
+        id: set_b
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FEE_RATE: ${{ vars.FEE_RATE || '0.001' }}
-        run: python scripts/simulate.py --set b --session ${{ steps.session.outputs.num }}
-
+          SESSION: ${{ steps.session.outputs.num }}
+        run: python scripts/simulate.py --set b --session "$SESSION"
+      - name: Save Set B result
+        id: commit_b
+        continue-on-error: true
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: save Set B [run-${{ github.run_number }}]"
+          file_pattern: "data/**"
       - name: Generate HTML report
+        id: report
+        continue-on-error: true
         run: python scripts/generate_report.py
-
       - name: Commit data and report changes
+        id: commit_report
+        continue-on-error: true
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update simulation data and reports [run-${{ github.run_number }}]"
           file_pattern: "data/** docs/**"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+      - name: Report simulation failure
+        env:
+          A_OUTCOME: ${{ steps.set_a.outcome }}
+          B_OUTCOME: ${{ steps.set_b.outcome }}
+          REPORT_OUTCOME: ${{ steps.report.outcome }}
+          COMMIT_A: ${{ steps.commit_a.outcome }}
+          COMMIT_B: ${{ steps.commit_b.outcome }}
+          COMMIT_REPORT: ${{ steps.commit_report.outcome }}
+        run: |
+          if [[ "$A_OUTCOME" != success || "$B_OUTCOME" != success || "$REPORT_OUTCOME" != success || "$COMMIT_A" != success || "$COMMIT_B" != success || "$COMMIT_REPORT" != success ]]; then
+            echo "Simulation or report failed: A=$A_OUTCOME B=$B_OUTCOME report=$REPORT_OUTCOME" >&2
+            exit 1
+          fi

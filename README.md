@@ -1,86 +1,54 @@
 # LLM Investment Simulator
 
-GitHub Actions + Google Gemini Flash を使った **投資シミュレーター**。  
-実際の売買は行わず、仮想の資産を LLM が運用します。
+GitHub Actions と Google Gemini を使い、セット A（安定志向）と B（利益志向）の仮想資産を運用・表示します。実際の売買は行いません。投資助言ではなく、投資判断の参考にも適しません。
+
+## 文書
+
+- [仕様書](specification.md)：現行動作、制約、障害時の扱い。
+- [設計書](design.md)：構成、データ形式、保存と信頼境界。
+- [改善計画書](plan.md)：対応内容、テスト、今後の課題。
+- `data/set_*/plan.md`：LLM が更新する各セットの投資計画。上記のソフトウェア改善計画とは別です。
+- `data/set_*/system_prompt.md`：運用者管理のエージェント方針。`investment_method/methods.md`：運用者管理の参考資料。
 
 ## 仕組み
 
-```
-GitHub Actions (平日 1日3回起動)
-  ├─ Set A シミュレーション (安定志向プロンプト)
-  │    ├─ ニュース取得 (feedparser / Google News RSS)
-  │    ├─ 株価取得 (yfinance)
-  │    ├─ Gemini API 呼び出し → トレード指示 + 計画更新
-  │    └─ data/set_a/ へ結果保存
-  ├─ Set B シミュレーション (利益志向プロンプト)
-  │    └─ data/set_b/ へ結果保存
-  └─ GitHub Pages レポート生成 → docs/index.html
-```
+平日 JST 09:00 / 13:00 / 17:00 に Actions が起動予定です（祝日判定なし）。A、B の仮想売買と保存を行い、`docs/index.html` を生成し GitHub Pages に公開します。通常、両セットが API に到達すると1日6回 Gemini を呼び出します。手動実行や失敗等により回数は変わります。
 
-1日3セッション × 2セット = **Gemini API を1日6回呼び出し**
+保有銘柄とウォッチ銘柄の価格を取得し、価格欠損・残高・集中比率などをコードで検証します。通貨別に集計し、為替換算はしません。API エラーは記録したうえでジョブを失敗させます。レポートは最新評価、取引状態、評価推移のほか、直近30回の API 成功・失敗を表示します。
 
-## ディレクトリ構成
+**重要:** 外部ニュース本文・見出しと過去の LLM 生成計画は、プロンプト汚染を避けるため Gemini に渡しません。RSS の件数は記録しますが、現在ニュースの内容は投資判断に利用されません。プロンプトに記された全ての投資方針が機械的に保証されるわけではありません。許可銘柄、損切り、取得単価不明時の扱い、保存上の限界を含む詳細は [仕様書](specification.md) を参照してください。
 
-```
-.
-├── .github/workflows/simulate.yml   # GitHub Actionsワークフロー
-├── scripts/
-│   ├── simulate.py                  # シミュレーション本体
-│   └── generate_report.py           # HTMLレポート生成
-├── data/
-│   ├── set_a/                       # セットA（安定志向）
-│   │   ├── assets.json              # 現在の資産
-│   │   ├── plan.md                  # LLMの投資計画
-│   │   ├── watchlist.json           # 注目銘柄・キーワード
-│   │   ├── system_prompt.md         # エージェントへのシステムプロンプト
-│   │   ├── last_session.json        # 直近セッション結果
-│   │   └── history/                 # 月別ログ
-│   │       ├── calls_YYYY-MM.jsonl  # API呼び出し履歴
-│   │       └── trades_YYYY-MM.jsonl # トレード履歴
-│   └── set_b/                       # セットB（利益志向）
-│       └── ...（同構成）
-├── investment_method/
-│   └── methods.md                   # 投資理論参考資料（手動で記入）
-├── docs/
-│   └── index.html                   # GitHub Pages レポート（自動生成）
-└── requirements.txt
+## 構成
+
+```text
+.github/workflows/   # シミュレーション、テスト
+scripts/             # simulate.py、generate_report.py
+data/set_a/         # 資産、ウォッチリスト、投資計画、プロンプト、最新セッション、月別履歴
+data/set_b/         # 同構成
+investment_method/   # 投資メソッド（人手管理）
+docs/index.html      # 自動生成レポート
+requirements.txt     # Python 依存
+tests/              # 外部アクセスをモックした自動テスト
 ```
 
-## セットアップ
+## セットアップ・実行
 
-### 1. リポジトリの設定
+1. GitHub Secret `GEMINI_API_KEY` を設定します。任意の Variable `FEE_RATE` の既定値は `0.001`（0.1%）です。
+2. GitHub Pages の `Settings → Pages → Source` を **GitHub Actions** に設定し、ワークフローにコンテンツ書き込みと Pages デプロイ権限を付与します。
+3. `data/set_*/assets.json` の通貨別現金・保有数量、`watchlist.json`、`system_prompt.md` と `investment_method/methods.md` を用意します。過去の JSONL は任意です。データ形式は [設計書](design.md) を参照してください。
+4. 手動実行は `Actions → LLM Investment Simulator → Run workflow`。`session_override` は空欄か `1`、`2`、`3` です。空欄の手動実行は開始時刻に基づきます。
 
-#### Secrets
-| 名前 | 説明 |
-|------|------|
-| `GEMINI_API_KEY` | Google Gemini API キー |
+ローカルでは Python 3.11 と `requirements.txt` を使用します。
 
-#### Variables（任意）
-| 名前 | デフォルト | 説明 |
-|------|-----------|------|
-| `FEE_RATE` | `0.001` | 手数料率（0.1%） |
+```sh
+python -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+export GEMINI_API_KEY='利用する API キー'
+python scripts/simulate.py --set a --session 1 --session-id my-session-1
+python scripts/simulate.py --set b --session 1 --session-id my-session-1
+python scripts/generate_report.py
+python -m unittest discover -s tests -v
+```
 
-### 2. GitHub Pages の有効化
-`Settings → Pages → Source: GitHub Actions`
-
-### 3. 初期データの準備（ユーザーが用意するもの）
-
-#### 投資メソッド
-`investment_method/methods.md` に投資理論を記入してください。
-
-#### 初期資産
-`data/set_a/assets.json` と `data/set_b/assets.json` の `cash` 欄を編集してください。
-
-#### 過去データ
-`data/set_*/history/` 以下に初期の履歴ファイルを配置できます（任意）。
-
-#### プロンプトのカスタマイズ
-`data/set_a/system_prompt.md` と `data/set_b/system_prompt.md` を編集してください。
-
-### 4. 手動実行
-`Actions → LLM Investment Simulator → Run workflow` でいつでも手動実行できます。
-
-## 注意事項
-- このシミュレーターは実際の投資を行いません
-- 投資判断の参考にしないでください
-- Gemini API の無料枠（1日あたりのリクエスト数）に注意してください
+同じセットで成功済みの `--session-id` は再実行時にスキップします。省略時はローカルでは毎回新しい ID になり、Actions では同じ workflow run の再実行に同じ `GITHUB_RUN_ID` を使います。実行は `data/` を更新し、レポート生成は `docs/index.html` を上書きします。実行前にバックアップし、キーをリポジトリに保存しないでください。ログや例外文は Pages に公開される可能性があります。
