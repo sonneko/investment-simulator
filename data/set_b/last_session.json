@@ -1,39 +1,39 @@
 {
-  "timestamp": "2026-11-13T20:58:57.947272+09:00",
+  "timestamp": "2026-11-14T00:53:07.227225+09:00",
   "session": 3,
-  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 20h1m2.067080253s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 72062\n}\n]",
+  "reasoning": "APIエラー: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 16h6m52.798359586s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 58012\n}\n]",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 20h1m2.067080253s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 72062\n}\n]",
+  "summary_for_report": "APIエラーのためスキップ: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 16h6m52.798359586s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 58012\n}\n]",
   "portfolio_value": {
-    "total_usd": 44044.55,
+    "total_usd": 43422.01,
     "total_jpy": 0,
     "breakdown": [
       {
         "ticker": "QQQ",
         "qty": 37.0,
-        "price": 688.17,
-        "value": 25462.289999999997,
+        "price": 675.39,
+        "value": 24989.43,
         "currency": "USD"
       },
       {
         "ticker": "BTC-USD",
         "qty": 0.04,
-        "price": 69270.2812,
-        "value": 2770.811248,
+        "price": 68630.7891,
+        "value": 2745.2315639999997,
         "currency": "USD"
       },
       {
         "ticker": "TSM",
         "qty": 13.0,
-        "price": 405.49,
-        "value": 5271.37,
+        "price": 395.23,
+        "value": 5137.99,
         "currency": "USD"
       },
       {
         "ticker": "MSFT",
         "qty": 4.0,
-        "price": 523.0,
-        "value": 2092.0,
+        "price": 525.32,
+        "value": 2101.28,
         "currency": "USD"
       }
     ],
@@ -44,36 +44,36 @@
   },
   "prices_snapshot": {
     "MSFT": {
-      "price": 523.0,
-      "change_pct": 0.36,
+      "price": 525.32,
+      "change_pct": 0.44,
       "52w_high": 559.15,
       "52w_low": 349.2,
       "currency": "USD"
     },
     "TSM": {
-      "price": 405.49,
-      "change_pct": -1.9,
+      "price": 395.23,
+      "change_pct": -2.53,
       "52w_high": 487.47,
       "52w_low": 266.82,
       "currency": "USD"
     },
     "QQQ": {
-      "price": 688.17,
-      "change_pct": -0.32,
+      "price": 675.39,
+      "change_pct": -1.86,
       "52w_high": 762.86,
       "52w_low": 555.6,
       "currency": "USD"
     },
     "BTC-USD": {
-      "price": 69270.2812,
-      "change_pct": -2.91,
+      "price": 68630.7891,
+      "change_pct": -3.8,
       "52w_high": 99804.4297,
       "52w_low": 57747.7656,
       "currency": "USD"
     },
     "GOOGL": {
-      "price": 298.7,
-      "change_pct": 1.79,
+      "price": 295.26,
+      "change_pct": -1.15,
       "52w_high": 408.61,
       "52w_low": 270.7,
       "currency": "USD"
