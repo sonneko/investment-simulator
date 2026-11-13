@@ -1,15 +1,15 @@
 {
   "news_keywords": [
-    "TSMC semiconductor capex AI demand",
-    "NVIDIA Rubin Blackwell earnings guidance",
-    "Big Tech AI capex free cash flow",
-    "Bitcoin spot ETF flows institutional"
+    "Microsoft Azure AI revenue copilot",
+    "TSMC advanced packaging 2nm",
+    "Big Tech cloud capital expenditure",
+    "Bitcoin ETF institutional inflows"
   ],
   "tickers": [
+    "MSFT",
     "TSM",
-    "NVDA",
     "QQQ",
     "BTC-USD",
-    "MSFT"
+    "GOOGL"
   ]
 }
