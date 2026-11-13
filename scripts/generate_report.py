@@ -61,6 +61,11 @@ def escape_html(s):
     return html.escape(str(s), quote=True)
 
 
+def clean_lines(value):
+    """末尾空白を除去し、生成 HTML の行末を一定にする。"""
+    return "\n".join(line.rstrip() for line in str(value).split("\n"))
+
+
 def js_json(value):
     # JSON は HTML の script 終了タグを無効にする必要がある。
     return json.dumps(value, ensure_ascii=True, allow_nan=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
@@ -137,8 +142,8 @@ def build_set_section(set_id: str, label: str) -> str:
     calls       = load_all_jsonl(hist_dir, "calls")
 
     portfolio   = last_session.get("portfolio_value", {})
-    reasoning   = escape_html(last_session.get("reasoning", "（まだデータなし）"))
-    summary     = escape_html(last_session.get("summary_for_report", ""))
+    reasoning   = escape_html(clean_lines(last_session.get("reasoning", "（まだデータなし）")))
+    summary     = escape_html(clean_lines(last_session.get("summary_for_report", "")))
     ts          = escape_html(str(last_session.get("timestamp", ""))[:16])
 
     labels_js, usd_js, jpy_js = build_value_history_js(set_id)

@@ -146,6 +146,9 @@ class ReportTests(unittest.TestCase):
             self.assertEqual(len(report.load_all_jsonl(Path(d),'calls')),250)
         self.assertIn('成功 1 回 / 失敗 1 回', report.build_health_section([{'status':'ok'}, {'status':'error: x'}]))
 
+    def test_clean_lines(self):
+        self.assertEqual(report.clean_lines("first  \nsecond \n"), "first\nsecond\n")
+
     def test_incomplete_and_legacy(self):
         self.assertIn('不完全', report.build_portfolio_table({'complete':False,'missing_tickers':['X']}))
         self.assertIn('旧形式', report.build_portfolio_table({'total_usd':10}))
