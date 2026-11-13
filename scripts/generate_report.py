@@ -5,6 +5,15 @@
 """
 
 import json
+import html
+import math
+import fcntl
+from contextlib import ExitStack
+
+try:
+    from .simulate import recover_transaction, atomic_write
+except ImportError:
+    from simulate import recover_transaction, atomic_write
 import os
 from pathlib import Path
 from datetime import datetime
@@ -40,7 +49,7 @@ def load_jsonl(path, limit=200):
 def load_all_jsonl(directory: Path, prefix: str, limit=500):
     records = []
     for p in sorted(directory.glob(f"{prefix}_*.jsonl")):
-        records.extend(load_jsonl(p))
+        records.extend(load_jsonl(p, limit=limit))
     return records[-limit:]
 
 def read_text(path):
@@ -49,53 +58,58 @@ def read_text(path):
     return path.read_text(encoding="utf-8")
 
 def escape_html(s):
-    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    return html.escape(str(s), quote=True)
+
+
+def js_json(value):
+    # JSON は HTML の script 終了タグを無効にする必要がある。
+    return json.dumps(value, ensure_ascii=True, allow_nan=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+
 
 def build_trade_rows(trades):
     if not trades:
-        return "<tr><td colspan='7' style='text-align:center;color:#888'>トレード記録なし</td></tr>"
+        return "<tr><td colspan='8' style='text-align:center;color:#888'>トレード記録なし</td></tr>"
     rows = []
     for t in reversed(trades[-50:]):
-        status = t.get("status", "ok")
+        status = str(t.get("status", "ok"))
         color = "#c8f7c5" if status == "ok" else "#ffd6d6"
-        rows.append(f"""
-        <tr style="background:{color}">
-          <td>{escape_html(t.get('timestamp','')[:16])}</td>
-          <td><b>{escape_html(t.get('action',''))}</b></td>
-          <td>{escape_html(t.get('ticker',''))}</td>
-          <td>{t.get('qty','')}</td>
-          <td>{t.get('price','')}</td>
-          <td>{t.get('fee','')}</td>
-          <td>{escape_html(t.get('reason',''))[:60]}</td>
-        </tr>""")
+        detail = status
+        if status == "rejected_insufficient_cash":
+            detail += f" (残高: {t.get('available', '')}, 必要額: {t.get('required', '')})"
+        cells = [str(t.get('timestamp', ''))[:16], t.get('action', ''), t.get('ticker', ''), t.get('qty', ''), t.get('price', ''), t.get('fee', ''), detail, str(t.get('reason', ''))[:60]]
+        rows.append(f"<tr style='background:{color}'>" + "".join(f"<td>{escape_html(c)}</td>" for c in cells) + "</tr>")
     return "\n".join(rows)
+
 
 def build_portfolio_table(portfolio):
     if not portfolio:
         return "<p>データなし</p>"
-    bd = portfolio.get("breakdown", [])
-    cash = portfolio.get("cash", {})
     rows = []
-    for item in bd:
-        rows.append(f"""
-        <tr>
-          <td>{escape_html(item['ticker'])}</td>
-          <td>{item['qty']}</td>
-          <td>{item['price']}</td>
-          <td><b>{item['value']:.2f}</b></td>
-          <td>{item['currency']}</td>
-        </tr>""")
-    cash_rows = "".join(
-        f"<tr><td colspan='3'><b>現金 ({k})</b></td><td><b>{v:.2f}</b></td><td>{k}</td></tr>"
-        for k, v in cash.items()
-    )
-    return f"""
-    <table class='data-table'>
-      <thead><tr><th>銘柄</th><th>数量</th><th>現在価格</th><th>評価額</th><th>通貨</th></tr></thead>
-      <tbody>{chr(10).join(rows)}{cash_rows}</tbody>
-    </table>
-    <p>合計 USD: <b>{portfolio.get('total_usd',0):.2f}</b> &nbsp;|&nbsp; JPY: <b>{portfolio.get('total_jpy',0):.2f}</b></p>
-    """
+    for item in portfolio.get("breakdown", []):
+        rows.append("<tr>" + "".join(f"<td>{escape_html(item.get(k, ''))}</td>" for k in ("ticker", "qty", "price", "value", "currency")) + "</tr>")
+    for currency, value in portfolio.get("cash", {}).items():
+        rows.append(f"<tr><td colspan='3'>現金 ({escape_html(currency)})</td><td>{escape_html(value)}</td><td>{escape_html(currency)}</td></tr>")
+    totals = portfolio.get("totals_by_currency", {"USD": portfolio.get("total_usd", 0), "JPY": portfolio.get("total_jpy", 0)})
+    totals_text = " | ".join(f"{escape_html(k)}: {escape_html(v)}" for k, v in totals.items())
+    complete = portfolio.get("complete")
+    if complete is False:
+        warning = "<p>⚠ 価格欠損のため不完全: " + escape_html(", ".join(map(str, portfolio.get("missing_tickers", [])))) + "</p>"
+    elif complete is None:
+        warning = "<p>⚠ 旧形式の評価: 価格欠損の有無は未確認</p>"
+    else:
+        warning = ""
+    return f"<table class='data-table'><thead><tr><th>銘柄</th><th>数量</th><th>現在価格</th><th>評価額</th><th>通貨</th></tr></thead><tbody>{''.join(rows)}</tbody></table><p>通貨別合計: {totals_text}</p>{warning}"
+
+
+def build_health_section(records):
+    recent = records[-30:]
+    if not recent:
+        return "<p>呼び出し履歴なし</p>"
+    success = sum(1 for r in recent if r.get("status") == "ok")
+    latest = recent[-1]
+    status = " ".join(str(latest.get("status", "不明")).split())
+    return (f"<p>直近 {len(recent)} 回: 成功 {success} 回 / 失敗 {len(recent) - success} 回</p>"
+            f"<p>最新: {escape_html(latest.get('timestamp', ''))} — {escape_html(status)}</p>")
 
 def build_value_history_js(set_id: str):
     """ポートフォリオ評価額の時系列データをJSに変換"""
@@ -105,10 +119,12 @@ def build_value_history_js(set_id: str):
     for r in records:
         pv = r.get("portfolio_value", {})
         if pv and r.get("timestamp"):
-            labels.append(r["timestamp"][:16])
-            values_usd.append(pv.get("total_usd", 0))
-            values_jpy.append(pv.get("total_jpy", 0))
-    return json.dumps(labels), json.dumps(values_usd), json.dumps(values_jpy)
+            labels.append(str(r["timestamp"])[:16])
+            def chart_value(value):
+                return value if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and pv.get("complete") is not False else None
+            values_usd.append(chart_value(pv.get("total_usd")))
+            values_jpy.append(chart_value(pv.get("total_jpy")))
+    return js_json(labels), js_json(values_usd), js_json(values_jpy)
 
 def build_set_section(set_id: str, label: str) -> str:
     base = REPO_ROOT / "data" / f"set_{set_id}"
@@ -118,17 +134,19 @@ def build_set_section(set_id: str, label: str) -> str:
     plan        = read_text(base / "plan.md")
     hist_dir    = base / "history"
     all_trades  = load_all_jsonl(hist_dir, "trades")
+    calls       = load_all_jsonl(hist_dir, "calls")
 
     portfolio   = last_session.get("portfolio_value", {})
     reasoning   = escape_html(last_session.get("reasoning", "（まだデータなし）"))
     summary     = escape_html(last_session.get("summary_for_report", ""))
-    ts          = last_session.get("timestamp", "")[:16]
+    ts          = escape_html(str(last_session.get("timestamp", ""))[:16])
 
     labels_js, usd_js, jpy_js = build_value_history_js(set_id)
 
     trade_rows = build_trade_rows(all_trades)
     portfolio_table = build_portfolio_table(portfolio)
-    plan_html = escape_html(plan).replace("\\n", "<br>") if plan else "（まだ計画なし）"
+    plan_html = escape_html(plan) if plan else "（まだ計画なし）"
+    health_html = build_health_section(calls)
 
     keywords_html = ", ".join(
         f"<span class='tag'>{escape_html(k)}</span>"
@@ -143,6 +161,7 @@ def build_set_section(set_id: str, label: str) -> str:
   <section class="set-section" id="set-{set_id}">
     <h2>{label}</h2>
 
+    <div class="card full-width"><h3>🩺 API稼働状況（直近30回）</h3>{health_html}</div>
     <div class="cards">
       <div class="card">
         <h3>📊 最新ポートフォリオ評価</h3>
@@ -182,7 +201,7 @@ def build_set_section(set_id: str, label: str) -> str:
       <div class="table-wrap">
         <table class="data-table">
           <thead>
-            <tr><th>日時</th><th>売買</th><th>銘柄</th><th>数量</th><th>価格</th><th>手数料</th><th>理由</th></tr>
+            <tr><th>日時</th><th>売買</th><th>銘柄</th><th>数量</th><th>価格</th><th>手数料</th><th>状態・拒否理由</th><th>理由</th></tr>
           </thead>
           <tbody>{trade_rows}</tbody>
         </table>
@@ -233,6 +252,18 @@ def build_set_section(set_id: str, label: str) -> str:
 """
 
 def generate_report():
+    # 同じロックの下で未完了トランザクションを回復してから読む。
+    with ExitStack() as stack:
+        for set_id in ("a", "b"):
+            base = REPO_ROOT / "data" / f"set_{set_id}"
+            base.mkdir(parents=True, exist_ok=True)
+            lock = stack.enter_context(open(base / ".simulation.lock", "a"))
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            recover_transaction(base)
+        _generate_report_locked()
+
+
+def _generate_report_locked():
     DOCS_DIR.mkdir(exist_ok=True)
 
     section_a = build_set_section("a", "🅰️ セットA（安定志向）")
@@ -326,7 +357,7 @@ def generate_report():
 </html>"""
 
     out = DOCS_DIR / "index.html"
-    out.write_text(html, encoding="utf-8")
+    atomic_write(out, html)
     print(f"[INFO] Report generated: {out}")
 
 if __name__ == "__main__":
