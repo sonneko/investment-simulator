@@ -1,15 +1,16 @@
 {
   "news_keywords": [
-    "Microsoft Azure AI revenue copilot",
-    "TSMC advanced packaging 2nm",
-    "Big Tech cloud capital expenditure",
-    "Bitcoin ETF institutional inflows"
+    "Microsoft Azure AI",
+    "TSMC 2nm packaging",
+    "Bitcoin ETF inflow",
+    "Hyperscaler AI CAPEX",
+    "NVIDIA GPU demand"
   ],
   "tickers": [
-    "MSFT",
-    "TSM",
     "QQQ",
     "BTC-USD",
-    "GOOGL"
+    "TSM",
+    "MSFT",
+    "NVDA"
   ]
 }
