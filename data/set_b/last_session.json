@@ -1,46 +1,99 @@
 {
-  "timestamp": "2026-11-16T13:24:26.399027+09:00",
-  "session": 1,
-  "session_id": "43802754039",
-  "status": "ok",
-  "reasoning": "現在、全保有銘柄（QQQ, BTC-USD, TSM, MSFT）の市場価格データが未取得（価格辞書が空）であり、正確なポートフォリオ評価やトレードサイズの算定ができません。利益追求型としてモメンタムとカタリストを重視しますが、価格が不透明な状態での売買は予期せぬ過大投資リスクや規律違反を招くため、今回は売買を見送り現状維持（Hold）とします。ニュース環境としてはMicrosoftのAzure・AI需要拡大（最新四半期Azure48%成長）やTSMCの2nm・先端実装需要、ビットコインETFへの機関投資家資金流入など保有資産にとって強い追い風が継続しており、ポジションを堅持する方針に問題はありません。",
-  "trades_executed": [],
-  "summary_for_report": "価格データの未取得に伴い新規発注は見送り、既存のQQQ、BTC-USD、TSM、MSFTを全量ホールドとしました。AI・クラウドの力強い成長カタリストとBTCへの資金流入を確認しており、価格情報取得後に積極的な追加投資を行います。",
+  "timestamp": "2026-11-16T21:24:15.222368+09:00",
+  "session": 2,
+  "session_id": "43866075775",
+  "status": "error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 44.792304047s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 44\n}\n]",
+  "reasoning": "error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 44.792304047s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 44\n}\n]",
+  "trades_executed": [
+    {
+      "timestamp": "2026-11-16T21:24:15.222321+09:00",
+      "action": "sell",
+      "ticker": "BTC-USD",
+      "qty": 0.04,
+      "price": 64002.6484,
+      "fee": 2.5601,
+      "currency": "USD",
+      "reason": "平均取得単価比 -10% の損切り",
+      "status": "ok",
+      "actual_gain": 2557.5458,
+      "set": "b",
+      "session": 2,
+      "session_id": "43866075775"
+    }
+  ],
+  "summary_for_report": "APIエラーのためスキップ: error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 44.792304047s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 44\n}\n]",
   "portfolio_value": {
-    "total_usd": 8448.08,
+    "total_usd": 43440.57,
     "total_jpy": 0,
     "totals_by_currency": {
-      "USD": 8448.08,
+      "USD": 43440.57,
       "JPY": 0
     },
-    "complete": false,
-    "missing_tickers": [
-      "QQQ",
-      "BTC-USD",
-      "TSM",
-      "MSFT"
+    "complete": true,
+    "missing_tickers": [],
+    "breakdown": [
+      {
+        "ticker": "QQQ",
+        "qty": 37.0,
+        "price": 679.89,
+        "value": 25155.93,
+        "currency": "USD"
+      },
+      {
+        "ticker": "TSM",
+        "qty": 13.0,
+        "price": 398.73,
+        "value": 5183.49,
+        "currency": "USD"
+      },
+      {
+        "ticker": "MSFT",
+        "qty": 4.0,
+        "price": 523.88,
+        "value": 2095.52,
+        "currency": "USD"
+      }
     ],
-    "breakdown": [],
     "cash": {
-      "USD": 8448.0793,
+      "USD": 11005.6251,
       "JPY": 0
     }
   },
   "prices_snapshot": {
     "QQQ": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 679.89,
+      "change_pct": -1.2,
+      "currency": "USD",
+      "52w_high": 762.86,
+      "52w_low": 555.6
     },
     "BTC-USD": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 64002.6484,
+      "change_pct": -1.99,
+      "currency": "USD",
+      "52w_high": 97860.6016,
+      "52w_low": 57747.7656
     },
     "TSM": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 398.73,
+      "change_pct": -1.67,
+      "currency": "USD",
+      "52w_high": 487.47,
+      "52w_low": 266.82
     },
     "MSFT": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 523.88,
+      "change_pct": 0.17,
+      "currency": "USD",
+      "52w_high": 559.15,
+      "52w_low": 349.2
     },
-    "GOOGL": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+    "NVDA": {
+      "price": 162.85,
+      "change_pct": -2.01,
+      "currency": "USD",
+      "52w_high": 243.37,
+      "52w_low": 148.8
     }
   }
 }
