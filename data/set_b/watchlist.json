@@ -1,16 +1,17 @@
 {
   "news_keywords": [
+    "NVIDIA Blackwell",
+    "GPU demand",
+    "AI server",
+    "TSMC capacity",
     "Microsoft Azure AI",
-    "TSMC 2nm packaging",
-    "Bitcoin ETF inflow",
-    "Hyperscaler AI CAPEX",
-    "NVIDIA GPU demand"
+    "BTC"
   ],
   "tickers": [
+    "NVDA",
     "QQQ",
-    "BTC-USD",
     "TSM",
     "MSFT",
-    "NVDA"
+    "BTC-USD"
   ]
 }
