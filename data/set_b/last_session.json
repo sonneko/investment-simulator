@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-19T14:42:34.635595+09:00",
-  "session": 1,
-  "session_id": "44465212898",
-  "status": "ok",
-  "reasoning": "現在、市場価格データが配信されておらず（missing_tickers: TSM, MSFT, NVDA, BTC-USD、価格辞書が空）、適正な約定価格およびリスク・リターン評価が算出できない状況です。利益志向エージェントとして高成長・モメンタム投資を志向しますが、価格情報なしでの新規エントリーや売買は過大なリスクを伴うため、既存保有銘柄（TSM, MSFT, NVDA, BTC-USD）は現状維持（hold）とし、価格データ取得と同時にモメンタムおよびカタリストを再検証して機動的な売買を実行します。",
+  "timestamp": "2026-11-19T21:41:20.574605+09:00",
+  "session": 2,
+  "session_id": "44523758985",
+  "status": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "reasoning": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "trades_executed": [],
-  "summary_for_report": "価格情報未受信のため全保有銘柄を維持（hold）。AIインフラおよび半導体の成長トレンドを追跡し、価格データ更新後に積極的な超過リターン追求の取引を再開します。",
+  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "portfolio_value": {
     "total_usd": 30390.3,
     "total_jpy": 0,
@@ -39,10 +39,10 @@
     "BTC-USD": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "QQQ": {
+    "SMCI": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "AMD": {
+    "SPY": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     }
   }
