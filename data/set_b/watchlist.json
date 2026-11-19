@@ -1,16 +1,17 @@
 {
   "news_keywords": [
-    "NVIDIA Blackwell",
     "AI server demand",
+    "NVIDIA earnings",
     "TSMC capacity",
-    "Bitcoin ETF flows",
-    "Tech earnings"
+    "Semiconductor bottleneck",
+    "Bitcoin rally"
   ],
   "tickers": [
     "NVDA",
     "TSM",
     "MSFT",
     "BTC-USD",
+    "AMD",
     "SMCI",
     "SPY"
   ]
