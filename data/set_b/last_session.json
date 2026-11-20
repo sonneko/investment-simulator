@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-20T21:46:44.278950+09:00",
-  "session": 2,
-  "session_id": "44735756189",
-  "status": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
-  "reasoning": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "timestamp": "2026-11-21T01:58:06.573163+09:00",
+  "session": 3,
+  "session_id": "44775230747",
+  "status": "error: DeadlineExceeded: 504 Deadline Exceeded",
+  "reasoning": "error: DeadlineExceeded: 504 Deadline Exceeded",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline Exceeded",
   "portfolio_value": {
     "total_usd": 30390.3,
     "total_jpy": 0,
