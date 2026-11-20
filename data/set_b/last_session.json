@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-20T14:14:30.922497+09:00",
-  "session": 1,
-  "session_id": "44679565641",
-  "status": "ok",
-  "reasoning": "価格データが未提供であり評価データも不完全（complete: false）な状態であるため、正確な約定額やポートフォリオ比率の算定ができません。過大投資禁止ルール（1回のトレードで現金50%以内）や比率制約の遵守のため、現セッションでの新規売買は見送り、既存の成長株・暗号資産ポジション（NVDA, TSM, MSFT, BTC-USD）をすべて保有継続（hold）とします。ニュース面ではNVIDIAの第3四半期決算が市場予想を上回り過去最高益を記録、AIサーバー需要も依然として堅調であることが確認できており、価格が提供され次第、モメンタムに乗る積極的な追加投資を検討します。",
+  "timestamp": "2026-11-20T21:46:44.278950+09:00",
+  "session": 2,
+  "session_id": "44735756189",
+  "status": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "reasoning": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "trades_executed": [],
-  "summary_for_report": "価格データが未取得のため、リスク管理および制約遵守の観点から新規取引を行わず既存全ポジションをホールドしました。外部ニュースではNVIDIAの力強い決算とAIサーバー需要の拡大が示されており、価格正常化後にAI・半導体関連の買い増し機会を探ります。",
+  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "portfolio_value": {
     "total_usd": 30390.3,
     "total_jpy": 0,
@@ -39,13 +39,10 @@
     "BTC-USD": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "AMD": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
-    },
     "SMCI": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "SPY": {
+    "AMD": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     }
   }
