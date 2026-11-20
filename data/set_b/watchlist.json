@@ -1,18 +1,17 @@
 {
   "news_keywords": [
-    "AI server demand",
     "NVIDIA earnings",
+    "AI server demand",
     "TSMC capacity",
-    "Semiconductor bottleneck",
-    "Bitcoin rally"
+    "Bitcoin rally",
+    "Semiconductor bottleneck"
   ],
   "tickers": [
     "NVDA",
     "TSM",
     "MSFT",
     "BTC-USD",
-    "AMD",
     "SMCI",
-    "SPY"
+    "AMD"
   ]
 }
