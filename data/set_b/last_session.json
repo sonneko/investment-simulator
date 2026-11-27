@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-27T15:27:14.924097+09:00",
-  "session": 1,
-  "session_id": "45949988603",
-  "status": "ok",
-  "reasoning": "現在、市場価格データが取得できていない（価格情報が空）ため、価格が未確定の状況での新規購入や売却注文は実行せず、現有ポジション（NVDA 20株、MSFT 4株）をホールドします。ニュース環境としては、NVIDIAの直近決算は市場予想を上回りAIサーバー需要やエコシステム（SMCI、鴻海等）の堅調さが確認されており、ファンダメンタルズおよび中長期モメンタムは非常に強気です。供給制約や電力ボトルネックの懸念は存在するものの、需要超過の表れと解釈できます。価格データが正常に取得され次第、現金余力（約36,733ドル）を活用して成長モメンタムの高い半導体・AIセクターへ追加投資を行う方針です。",
+  "timestamp": "2026-11-27T22:46:51.322178+09:00",
+  "session": 2,
+  "session_id": "46007057641",
+  "status": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "reasoning": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "trades_executed": [],
-  "summary_for_report": "価格データ未取得のため今回は売買を行わず、NVDAおよびMSFTの保有を継続。NVIDIAの好決算とAIサーバー需要の強さを背景に、次回価格更新時の追加投資機会を窺います。",
+  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
   "portfolio_value": {
     "total_usd": 36733.43,
     "total_jpy": 0,
@@ -34,10 +34,10 @@
     "TSM": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "BTC-USD": {
+    "AMD": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     },
-    "SPY": {
+    "SMCI": {
       "error": "Too Many Requests. Rate limited. Try after a while."
     }
   }
