@@ -1,24 +1,36 @@
 {
-  "timestamp": "2026-11-27T22:46:51.322178+09:00",
-  "session": 2,
-  "session_id": "46007057641",
-  "status": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
-  "reasoning": "error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "timestamp": "2026-11-28T02:48:05.810411+09:00",
+  "session": 3,
+  "session_id": "46044514038",
+  "status": "error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 54.199719285s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 54\n}\n]",
+  "reasoning": "error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 54.199719285s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 54\n}\n]",
   "trades_executed": [],
-  "summary_for_report": "APIエラーのためスキップ: error: DeadlineExceeded: 504 Deadline expired before operation could complete.",
+  "summary_for_report": "APIエラーのためスキップ: error: ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash, description: Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\nPlease retry in 54.199719285s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://aistudio.google.com/docs/rate-limits\"\n}\n, violations {\n  description: \"Generate content requests per minute limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\"\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerMinutePerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.8-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 5\n}\n, retry_delay {\n  seconds: 54\n}\n]",
   "portfolio_value": {
-    "total_usd": 36733.43,
+    "total_usd": 41678.12,
     "total_jpy": 0,
     "totals_by_currency": {
-      "USD": 36733.43,
+      "USD": 41678.12,
       "JPY": 0
     },
-    "complete": false,
-    "missing_tickers": [
-      "MSFT",
-      "NVDA"
+    "complete": true,
+    "missing_tickers": [],
+    "breakdown": [
+      {
+        "ticker": "MSFT",
+        "qty": 4.0,
+        "price": 491.048,
+        "value": 1964.192,
+        "currency": "USD"
+      },
+      {
+        "ticker": "NVDA",
+        "qty": 20,
+        "price": 149.025,
+        "value": 2980.5,
+        "currency": "USD"
+      }
     ],
-    "breakdown": [],
     "cash": {
       "USD": 36733.4307,
       "JPY": 0
@@ -26,19 +38,39 @@
   },
   "prices_snapshot": {
     "MSFT": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 491.048,
+      "change_pct": 0.23,
+      "currency": "USD",
+      "52w_high": 559.15,
+      "52w_low": 349.2
     },
     "NVDA": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 149.025,
+      "change_pct": -0.18,
+      "currency": "USD",
+      "52w_high": 243.37,
+      "52w_low": 124.5
     },
     "TSM": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 350.24,
+      "change_pct": 2.31,
+      "currency": "USD",
+      "52w_high": 487.47,
+      "52w_low": 275.08
     },
     "AMD": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 416.67,
+      "change_pct": 2.62,
+      "currency": "USD",
+      "52w_high": 658.52,
+      "52w_low": 188.22
     },
     "SMCI": {
-      "error": "Too Many Requests. Rate limited. Try after a while."
+      "price": 23.65,
+      "change_pct": 1.46,
+      "currency": "USD",
+      "52w_high": 51.4,
+      "52w_low": 19.48
     }
   }
 }
